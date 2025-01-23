@@ -27,7 +27,6 @@ class NeuralNet(nn.Module):
         super(NeuralNet, self).__init__()
         self.loss_fn = loss_fn
 
-        # For Part 1, the network should have the following architecture (in terms of hidden units):
         # in_size -> h -> out_size, where 1 <= h <= 256
         #make neural net with two cnn layers and two linear layers + one activation layer in between
         h = 130
@@ -81,8 +80,6 @@ class NeuralNet(nn.Module):
         loss_vals.backward() #find gradients w/ backward pass
         self.optimizer.step() #do final step of updating weights
 
-        # Important, detach and move to cpu before converting to numpy and then to python float.
-        # Or just use .item() to convert to python float. It will automatically detach and move to cpu.
         return loss_vals.item()
 
 
@@ -90,8 +87,7 @@ class NeuralNet(nn.Module):
 
 def fit(train_set,train_labels,dev_set,epochs,batch_size=100):
     """
-    Creates and trains a NeuralNet object 'net'. Use net.step() to train the neural net
-    and net(x) to evaluate the neural net.
+    Creates and trains a NeuralNet object 'net'. 
 
     Parameters:
     train_set (Tensor): An (N, in_size) Tensor representing the training data.
@@ -100,11 +96,9 @@ def fit(train_set,train_labels,dev_set,epochs,batch_size=100):
     epochs (int): The number of training epochs.
     batch_size (int, optional): The size of each training batch. Defaults to 100.
 
-    This method must work for arbitrary M and N.
+    This method will work for arbitrary M and N.
 
     The model's performance could be sensitive to the choice of learning rate.
-    We recommend trying different values if your initial choice does not work well.
-    For Part 1, we recommend setting the learning rate to 0.01.
 
     Returns:
     list: A list of floats containing the total loss for every epoch.
@@ -118,7 +112,7 @@ def fit(train_set,train_labels,dev_set,epochs,batch_size=100):
     train_set = ((train_set - train_mean)) / train_std
     dev_set = (dev_set - train_mean) / train_std
 
-    #create nuerla net and loss function
+    #create nueral net and loss function
     lrate = 0.000065
     loss_function = nn.CrossEntropyLoss()
     net = NeuralNet(lrate,loss_function,train_set.shape[1],4) #make neural net of corresponding insize and outsize(4 classes)
@@ -146,6 +140,6 @@ def fit(train_set,train_labels,dev_set,epochs,batch_size=100):
         _, predicted_labels = torch.max(dev_probabilities.data, 1)
         predicted_labels = predicted_labels.cpu().numpy() 
         predicted_labels = predicted_labels.astype(np.int64)
-        # Important, don't forget to detach losses and model predictions and convert them to the right return types.
+        
     return total_losses,predicted_labels,net
 
