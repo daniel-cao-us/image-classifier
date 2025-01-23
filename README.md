@@ -10,13 +10,13 @@ Activation Functions: LeakyReLU and Tanh for non-linear transformations.
 Fully Connected Layers: Dense layers for final classification.
 
 ## Usage
-#1. Dataset Preparation
+# 1. Dataset Preparation
 Prepare the image dataset with the following requirements:
 
 Input images should have three color channels (RGB).
 Input images should be resized to 31x31 pixels.
 
-#2. Training the Model
+# 2. Training the Model
 The model can be trained using the fit function, which takes the following parameters:
 
 train_set: Tensor of training images.
@@ -25,14 +25,14 @@ dev_set: Tensor of development/validation images.
 epochs: Number of training epochs.
 batch_size: Batch size for training (default: 100).
 
-#3. Model Architecture
+# 3. Model Architecture
 The neural network consists of:
 
 3 Convolutional Layers: For feature extraction.
 3 Max-Pooling Layers: For reducing spatial dimensions.
 2 Fully Connected Layers: For classification.
 
-#4. Evaluation
+# 4. Evaluation
 After training, the model evaluates the development set (dev_set) and outputs:
 
 A list of losses per epoch.
