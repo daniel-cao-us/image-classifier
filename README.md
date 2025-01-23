@@ -1,19 +1,17 @@
 # image-classifier
 
 ## Image Classifier
-This project implements a convolutional neural network (CNN) for classifying images into one of four classes. Built with PyTorch, the model processes input image data through convolutional, pooling, and fully connected layers, optimizing performance using gradient-based methods. It is designed to handle standardized input data and offers flexibility for training and evaluation.
+This code implements a convolutional neural network (CNN) for classifying images into one of four classes(ship, automobile, dog, or frog). Built with PyTorch, the model processes input image data through convolutional, pooling, and fully connected layers, optimizing performance using gradient-based methods. It is built to handle standardized input data and gives the user flexibility for training and evaluation. 
 
-## Features
+## Features of the CNN
 Convolutional Layers: Three layers for feature extraction with increasing depth.
 Pooling: Max-pooling layers for dimensionality reduction and parameter optimization.
 Activation Functions: LeakyReLU and Tanh for non-linear transformations.
 Fully Connected Layers: Dense layers for final classification.
-Training Pipeline: End-to-end support for training with batch processing and loss tracking.
-Preprocessing: Standardization of input image data for improved performance.
 
 ## Usage
 #1. Dataset Preparation
-Prepare your image dataset with the following requirements:
+Prepare the image dataset with the following requirements:
 
 Input images should have three color channels (RGB).
 Input images should be resized to 31x31 pixels.
